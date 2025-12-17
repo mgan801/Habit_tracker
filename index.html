@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Habit Tracker</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Daily Habit Tracker</h1>
+    <div class="month-controls">
+      <button id="prevMonthBtn" aria-label="Previous month">◀</button>
+      <span id="monthLabel"></span>
+      <button id="nextMonthBtn" aria-label="Next month">▶</button>
+    </div>
+    <div class="add-habit">
+      <input id="habitNameInput" type="text" placeholder="New habit name..." />
+      <button id="addHabitBtn">Add habit</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="legend">
+      <div><span class="dot done"></span> Done</div>
+      <div><span class="dot missed"></span> Missed</div>
+      <div><span class="dot today"></span> Today</div>
+    </section>
+
+    <section class="grid-container">
+      <table id="habitGrid" class="habit-grid">
+        <!-- Rendered by app.js -->
+      </table>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <button id="exportBtn">Export JSON</button>
+    <input id="importFile" type="file" accept="application/json" />
+  </footer>
+
+  <script src="app.js"></script>
+  
+ <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(reg => console.log("Service Worker registered:", reg.scope))
+      .catch(err => console.error("Service Worker registration failed:", err));
+  }
+</script>
+
+ 
+  
+  
+</body>
+</html>

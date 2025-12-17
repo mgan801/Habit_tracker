@@ -1,0 +1,73 @@
+:root {
+  --bg: #fafafa;
+  --card: #ffffff;
+  --text: #222;
+  --muted: #666;
+  --accent: #4caf50;
+  --accent-weak: #a5d6a7;
+  --danger: #ef5350;
+  --today: #42a5f5;
+  --border: #e0e0e0;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg); color: var(--text);
+}
+
+.topbar {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: center;
+  padding: 1rem; background: var(--card); border-bottom: 1px solid var(--border);
+}
+.topbar h1 { margin: 0; font-size: 1.2rem; }
+
+.month-controls { display: flex; gap: 0.5rem; align-items: center; }
+.month-controls button { padding: 0.4rem 0.6rem; }
+#monthLabel { font-weight: 600; }
+
+.add-habit { display: flex; gap: 0.5rem; }
+.add-habit input { padding: 0.4rem 0.6rem; min-width: 220px; }
+.add-habit button { padding: 0.4rem 0.8rem; background: var(--accent); color: white; border: none; border-radius: 4px; }
+
+.legend {
+  display: flex; gap: 1rem; align-items: center; padding: 0.75rem 1rem; color: var(--muted);
+}
+.dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; border: 1px solid var(--border); }
+.dot.done { background: var(--accent-weak); border-color: var(--accent); }
+.dot.missed { background: #fff; }
+.dot.today { background: var(--today); }
+
+.grid-container { padding: 1rem; }
+.habit-grid {
+  width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border);
+}
+.habit-grid th, .habit-grid td {
+  border: 1px solid var(--border); padding: 0.45rem; text-align: center; font-size: 0.9rem;
+}
+.habit-grid thead th {
+  position: sticky; top: 0; background: #f7f7f7; z-index: 1;
+}
+.habit-name {
+  text-align: left; font-weight: 600; min-width: 220px;
+}
+.day-cell {
+  width: 34px; height: 34px;
+}
+.day-cell.today { outline: 2px solid var(--today); outline-offset: -2px; border-color: var(--today); }
+.checkbox {
+  width: 18px; height: 18px; cursor: pointer;
+}
+.streak {
+  font-size: 0.85rem; font-weight: 600; color: var(--accent);
+}
+.completion {
+  font-size: 0.85rem; color: var(--muted);
+}
+
+.footer {
+  display: flex; gap: 0.75rem; padding: 0.75rem 1rem; border-top: 1px solid var(--border); background: var(--card);
+}
+#exportBtn {
+  padding: 0.4rem 0.8rem; border: 1px solid var(--border); border-radius: 4px; background: #fff;
+}
